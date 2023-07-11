@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}News{% endblock title %}
+{% block content %}
+<!-- start slider section -->
+    <div id="top_section" class="banner_main">
+        <div class="container-fluid">
+            <div class="row">
+                {% for new in latest_news %}
+                <div class="col-md-12">
+                    <div class="container-fluid">
+                        <div class="row d_flex">
+                            <div class="col-md-6">
+                                <div class="con_img">
+                                    <figure><img class="img_responsive" src="{{ new.image }}" alt="#" /></figure>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bluid">
+                                    <h1>{{ new.title }}</h1>
+                                    <p>{{ new.summary }}</p>
+                                    <a class="read_more" href="detail/{{ new.id }}">Read More &raquo;</a><br><br>
+                                    <a class="lead text-primary" href="Javascript:void(0)">Category: {{ new.category }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<!-- end slider section -->
+
+<!-- wallet -->
+    <div class="wallet">
+        <div class="container-fluid">
+            <div class="row">
+                {% for new in other_news %}
+                <div class="col-lg-3 col-sm-6">
+                    <div id="wa_hover" class="wallet_box text_align_center">
+                        <i><img src="{{ new.image }}" alt="#"/></i>
+                        <h3>{{ new.title }}</h3>
+                        <a href="Javascript:void(0)">Category: {{ new.category }}</a>
+                        <p>{{ new.summary }}</p>
+                        <a class="read_more" href="detail/{{ new.id }}">Read More &raquo;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<!-- end wallet -->
+{% endblock content %}

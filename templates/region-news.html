@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block title %}News | {{ region.news }}{% endblock title %}
+{% block content %}
+    <!-- wallet -->
+    <div class="wallet">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>{{ category.name }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for new in news %}
+                <div class="col-lg-3 col-sm-6">
+                    <div id="wa_hover" class="wallet_box text_align_center">
+                        <i><img src="{{ new.image }}" alt="#"/></i>
+                        <h3>{{ new.title }}</h3>
+                        <a href="Javascript:void(0)">Category: {{ new.category }}</a>
+                        <p>{{ new.summary }}</p>
+                        <a class="read_more" href="detail/{{ new.id }}">Read More &raquo;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end wallet -->
+{% endblock content %}
